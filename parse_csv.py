@@ -4,7 +4,6 @@ Parse csv dataset and store the data in SQL tables
 import os
 
 import django
-import numpy as np
 import pandas as pd
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'manage_contact.settings')
@@ -13,28 +12,18 @@ django.setup()
 from contact import models
 from tqdm import tqdm
 
-
-def validate(x) -> bool:
-    """
-    return True if valid entry
-    """
-    if isinstance(x, str):
-        return True
-    if x is None or np.isnan(x):
-        return False
-    return True
+from contact.validations import validate_nan as validate, normalize_nans
 
 
 # parse a single row and store in appropriate tables
 def parse_row(row: pd.Series) -> None:
+    # don't allow nan values anywhere
+    row = normalize_nans(row)
+
     contact = models.Contact(contact_id=row.contact_id,
                              fname=row.first_name, mname=row.middle_name,
                              lname=row.last_name)
     contact.save()
-
-    for key in row.keys():
-        if not validate(row[key]):
-            row[key] = None
 
     # don't add address if all entities are empty
     if any([validate(row.home_address), validate(row.home_city),

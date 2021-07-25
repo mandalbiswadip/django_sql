@@ -22,9 +22,9 @@ class Address(models.Model):
     address_id = models.AutoField(primary_key=True)
     contact_id = models.ForeignKey(to=Contact, on_delete=models.CASCADE,
                                    db_column='contact_id')
-    address_type_choice = [(HOME, 'home'), (WORK, 'work'), (EMPTY, "")]
+    address_type_choice = [(HOME, 'home'), (WORK, 'work')]
     address_type = models.CharField(max_length=5, choices=address_type_choice,
-                                    default=HOME, null=True, blank=True)
+                                    default=HOME)
     address = models.CharField(max_length=30, null=True, blank=True)
     city = models.CharField(max_length=12, null=True, blank=True)
     state = models.CharField(max_length=6, null=True, blank=True)
@@ -45,7 +45,7 @@ class Phone(models.Model):
                                    db_column='contact_id')
     # TODO provide choice
     phone_type = models.CharField(max_length=5, choices=phone_type_choice,
-                                  default=CELL, null=True, blank=True)
+                                  default=CELL)
     area_code = models.CharField(max_length=3, null=True, blank=True)
 
     def val_number(self, x):

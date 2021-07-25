@@ -12,6 +12,18 @@ class ContactTable(tables.Table):
         verbose_name=''
     )
 
+    update = tables.TemplateColumn(
+        '<form action="/samples/{{record.contact_id}}/update_contact/" method="get">{% csrf_token %}<input type="hidden" name="_method" value="update"><button data-toggle="tooltip" title="Update row" type="submit" class="btn btn-danger btn-xs">Update</button></form>',
+        orderable=False,
+        verbose_name=''
+    )
+
+    view = tables.TemplateColumn(
+        '<form action="/samples/{{record.contact_id}}/view_contact/" method="get">{% csrf_token %}<input type="hidden" name="_method" value="update"><button data-toggle="tooltip" title="View row" type="submit" class="btn btn-danger btn-xs">View</button></form>',
+        orderable=False,
+        verbose_name=''
+    )
+
     class Meta:
         model = Contact
         template_name = "django_tables2/bootstrap.html"

@@ -21,12 +21,13 @@ from contact import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.ContactListView.as_view()),
     path('contact/', views.ContactListView.as_view()),
     path(r'add_contact/', views.add_contact),
-    path(r'modify_contact/', views.modify_contact),
     url(r'^samples/(?P<pk>\d+)/delete_contact/$', views.delete_contact,
         name='Delete Contact'),
-    path(r'address/', views.add_address),
-    path(r'phone/', views.add_phone),
-    path(r'date/', views.add_date),
+    url(r'^samples/(?P<pk>\d+)/update_contact/$', views.update_contact,
+        name='Update Contact'),
+    url(r'^samples/(?P<pk>\d+)/view_contact/$', views.view_contact,
+        name='View Contact'),
 ]

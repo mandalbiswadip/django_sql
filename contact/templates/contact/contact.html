@@ -1,10 +1,39 @@
 {% load render_table from django_tables2 %}
 {% load bootstrap3 %}
+{% load crispy_forms_tags %}
 
 {% if filter %}
+<head>
+<style type="text/css">
+.buttonstyle
+{
+background: white;
+background-position: 0px -401px;
+border: solid 1px #000000;
+color: black;
+height: 42px;
+width: 200px;
+margin-top: -1px;
+padding-bottom: 2px;
+}
+.buttonstyle:hover {background: gray;background-position: 0px -501px;color: #000000; }
+
+input[type=text] {
+  height : 30px;
+  width : 300px;
+  border: 2px solid red;
+  border-radius: 4px;
+}
+</style>
+</head>
+
+    <form action="/add_contact">
+        <input class="buttonstyle" type="submit" value="Add New Contact" />
+    </form>
+
     <form action="" method="get" class="form form-inline">
-        {% bootstrap_form filter.form layout='inline' %}
-        {% bootstrap_button 'filter' %}
+        {{ filter.form }}
+        <button type="button" class="btn btn-primary btn-lg">Filter</button>
     </form>
 {% endif %}
 {% render_table table 'django_tables2/bootstrap.html' %}
