@@ -5,7 +5,7 @@ from django_filters.views import FilterView
 from django_tables2 import SingleTableMixin
 
 from .filters import ContactFilter
-from .forms import ContactForm, AddressForm, PhoneForm, DataForm
+from .forms import ContactForm, AddressForm, PhoneForm, DataForm, AddContactForm
 from .logs import logger
 from .models import Contact
 from .tables import ContactTable
@@ -20,16 +20,32 @@ class ContactListView(SingleTableMixin, FilterView):
 
 # add contact
 def add_contact(request) -> object:
+    logger.warn(request.POST)
     if request.method == 'POST':
-        form = ContactForm(request.POST)
+        form_a = ContactForm(request.POST)
+        form_b = AddressForm(request.POST)
+        form_c = PhoneForm(request.POST)
+        form_d = DataForm(request.POST)
 
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect('/contact/')
+        if form_a.is_valid():
+            form_a.save()
+
+            if form_b.is_valid():
+                #     # form_b.cleaned_data["primary"] = primary
+                #     b = form_b.save(commit=False)
+                #     b.contact_id = primary
+                #     b.save()
+                form_b.save()
+            if form_c.is_valid():
+                form_c.save()
+            if form_d.is_valid():
+                form_d.save()
         else:
             logger.error("Form submitted is not valid!")
+
+        return HttpResponseRedirect('/contact/')
     else:
-        form = ContactForm()
+        form = AddContactForm()
 
     return render(request, 'contact/edit.html', {'form': form})
 
@@ -80,22 +96,13 @@ def modify_contact(request) -> object:
                   {'form': form, 'title': 'Edit Contact'})
 
 
-def delete_contact(request) -> object:
+def delete_contact(request, pk) -> object:
     """
     @param request:
     @return:
     """
-    if request.method == 'POST':
-        try:
-            obj = Contact.objects.get(pk=request.POST['contact_id']).delete()
-        except Exception:
-            pass
-        return HttpResponseRedirect('/contact/')
-
-    else:
-        form = ContactForm()
-
-    return render(request, 'contact/delete.html', {'form': form})
+    obj = Contact.objects.get(pk=pk).delete()
+    return HttpResponseRedirect('/contact/')
 
 
 # add address

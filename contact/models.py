@@ -18,10 +18,11 @@ class Contact(models.Model):
 class Address(models.Model):
     HOME = "home"
     WORK = "work"
+    EMPTY = ""
     address_id = models.AutoField(primary_key=True)
     contact_id = models.ForeignKey(to=Contact, on_delete=models.CASCADE,
                                    db_column='contact_id')
-    address_type_choice = [(HOME, 'home'), (WORK, 'work')]
+    address_type_choice = [(HOME, 'home'), (WORK, 'work'), (EMPTY, "")]
     address_type = models.CharField(max_length=5, choices=address_type_choice,
                                     default=HOME, null=True, blank=True)
     address = models.CharField(max_length=30, null=True, blank=True)
