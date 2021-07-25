@@ -1,8 +1,13 @@
 # Django App for a SQL database management
 
 Python version: python3.7
+Mysql version: 8.0.25
 
-It's highly recommended to create a virtual environment. After activating the virtual environment, run the following command from the project home directory to install dependencies:
+Create the MySQL database using the following command
+
+```mysql -u root -e 'create database contact_db'```
+
+It's highly recommended creating a virtual environment. After activating the virtual environment, run the following command from the project home directory to install dependencies:
 
 ```
 pip install -r requirements.txt
