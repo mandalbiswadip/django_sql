@@ -1,0 +1,26 @@
+[I 14:27:24.165 NotebookApp] Serving notebooks from local directory: /Users/biswadipmandal/Documents/MSCS/Summer_21/CS6360db/individual_project/manage_contact
+[I 14:27:24.165 NotebookApp] Jupyter Notebook 6.4.0 is running at:
+[I 14:27:24.165 NotebookApp] http://localhost:8888/?token=0e8f7542b450771f8062d11fdccd12fb68a6cc67804ec973
+[I 14:27:24.165 NotebookApp]  or http://127.0.0.1:8888/?token=0e8f7542b450771f8062d11fdccd12fb68a6cc67804ec973
+[I 14:27:24.165 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[C 14:27:24.169 NotebookApp] 
+    
+    To access the notebook, open this file in a browser:
+        file:///Users/biswadipmandal/Library/Jupyter/runtime/nbserver-2560-open.html
+    Or copy and paste one of these URLs:
+        http://localhost:8888/?token=0e8f7542b450771f8062d11fdccd12fb68a6cc67804ec973
+     or http://127.0.0.1:8888/?token=0e8f7542b450771f8062d11fdccd12fb68a6cc67804ec973
+[W 14:27:30.011 NotebookApp] Notebook Parser.ipynb is not trusted
+[I 14:27:30.117 NotebookApp] Kernel started: 20fce002-bb83-4754-a9d8-d58ffc1e953c, name: python3
+[W 14:27:30.135 NotebookApp] 404 GET /nbextensions/widgets/notebook/js/extension.js?v=20210723142724 (::1) 9.870000ms referer=http://localhost:8888/notebooks/Parser.ipynb
+[I 14:35:30.097 NotebookApp] Saving file at /Parser.ipynb
+[W 14:35:30.099 NotebookApp] Notebook Parser.ipynb is not trusted
+[I 14:37:30.085 NotebookApp] Saving file at /Parser.ipynb
+[W 14:37:30.085 NotebookApp] Notebook Parser.ipynb is not trusted
+[I 14:50:30.744 NotebookApp] Saving file at /Parser.ipynb
+[W 14:50:30.747 NotebookApp] Notebook Parser.ipynb is not trusted
+[I 15:48:28.543 NotebookApp] Starting buffering for 20fce002-bb83-4754-a9d8-d58ffc1e953c:e9f02e3a717e4a458a08c2a7a0368fc3
+[C 15:48:37.929 NotebookApp] received signal 15, stopping
+[I 15:48:37.933 NotebookApp] Shutting down 1 kernel
+[I 15:48:38.459 NotebookApp] Kernel shutdown: 20fce002-bb83-4754-a9d8-d58ffc1e953c
+[I 15:48:38.460 NotebookApp] Shutting down 0 terminals
