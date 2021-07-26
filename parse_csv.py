@@ -67,7 +67,7 @@ def parse_row(row: pd.Series) -> None:
         dt.save()
 
 
-data = pd.read_csv("../Contacts.cvs.csv")
+data = pd.read_csv("Contacts.cvs.csv")
 
-for index, row in tqdm(data.iterrows()):
+for i, (index, row) in tqdm(enumerate(data.iterrows())):
     parse_row(row)

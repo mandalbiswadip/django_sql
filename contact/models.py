@@ -73,7 +73,7 @@ class Date(models.Model):
     contact_id = models.ForeignKey(to=Contact, db_column='contact_id',
                                    on_delete=models.CASCADE)
     # include date_type
-    date_type = models.CharField(max_length=10, default='birth', null=True, blank=True)
+    date_type = models.CharField(max_length=10, default='birth')
     date = models.DateField(null=True, blank=True)
 
     def __str__(self):

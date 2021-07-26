@@ -2,7 +2,7 @@
 
 Python version: python3.7
 Mysql version: 8.0.25
-
+First clone the project.
 Create the MySQL database using the following command
 
 ```mysql -u root -e 'create database contact_db'```
@@ -31,3 +31,5 @@ python manage.py runserver
 ```
 
 By default, the server should be accessible at ```http://127.0.0.1:8000/```
+
+Go through the user guide for instructions on how to use the web app.
