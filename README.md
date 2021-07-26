@@ -2,6 +2,7 @@
 
 Python version: python3.7
 Mysql version: 8.0.25
+
 First clone the project.
 Create the MySQL database using the following command
 
