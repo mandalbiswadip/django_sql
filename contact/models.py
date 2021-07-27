@@ -28,7 +28,8 @@ class Address(models.Model):
     address = models.CharField(max_length=30, null=True, blank=True)
     city = models.CharField(max_length=12, null=True, blank=True)
     state = models.CharField(max_length=6, null=True, blank=True)
-    zip = models.CharField(max_length=10, null=True, blank=True)
+    zip = models.CharField(max_length=10, validators=[validations.zip_regex],
+                           null=True, blank=True)
 
     def __str__(self):
         return self.address_id
@@ -53,7 +54,8 @@ class Phone(models.Model):
 
     # TODO validate number format
     # TODO validation error resolve
-    number = models.CharField(max_length=12, validators=[], null=True,
+    number = models.CharField(max_length=12,
+                              validators=[validations.phone_regex], null=True,
                               blank=True)
 
     # TODO check validity

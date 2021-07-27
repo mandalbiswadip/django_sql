@@ -69,5 +69,9 @@ def parse_row(row: pd.Series) -> None:
 
 data = pd.read_csv("Contacts.cvs.csv")
 
-for i, (index, row) in tqdm(enumerate(data.iterrows())):
-    parse_row(row)
+total = data.shape[0]
+
+with tqdm(total=total) as pbar:
+    for i, (index, row) in tqdm(enumerate(data.iterrows())):
+        parse_row(row)
+        pbar.update(1)

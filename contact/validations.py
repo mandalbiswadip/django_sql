@@ -1,5 +1,9 @@
 import numpy as np
 from django.core.exceptions import ValidationError
+from django.core.validators import RegexValidator
+
+phone_regex = RegexValidator(regex=r'^\d{3}-{0,1}\d{3}-{0,1}\d{4}$')
+zip_regex = RegexValidator(regex=r'^\d{5}$')
 
 
 def validate_nan(x) -> bool:
